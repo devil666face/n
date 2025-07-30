@@ -6,3 +6,27 @@ tasks:
     silent: true
     cmds:
       - docker compose up --build --force-recreate
+
+  up.cpu:
+    desc: up with ollama cpu
+    silent: true
+    cmds:
+      - docker compose --profile cpu up --build --force-recreate
+
+  up.nvidia:
+    desc: up with ollama nvidia
+    silent: true
+    cmds:
+      - docker compose --profile nvidia up --build --force-recreate
+
+  up.amd:
+    desc: up with ollama amd
+    silent: true
+    cmds:
+      - docker compose --profile amd up --build --force-recreate
+
+  up.intel:
+    desc: up with ollama amd
+    silent: true
+    cmds:
+      - docker compose --profile intel up --build --force-recreate
