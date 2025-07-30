@@ -1,0 +1,8 @@
+version: "3"
+
+tasks:
+  up:
+    desc: up docker compose
+    silent: true
+    cmds:
+      - docker compose up --build --force-recreate
