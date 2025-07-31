@@ -46,6 +46,7 @@ services:
       - NODE_ENV=production
       - WEBHOOK_URL=https://n8n.local.lan/
       - GENERIC_TIMEZONE=Europe/Moscow
+      - N8N_RUNNERS_ENABLED=true
       - N8N_BASIC_AUTH_ACTIVE=true
       - N8N_BASIC_AUTH_USER=admin
       - N8N_BASIC_AUTH_PASSWORD=Qwerty123
@@ -92,8 +93,6 @@ services:
       - "/dev/kfd"
       - "/dev/dri"
 
-  # https://github.com/mattcurf/ollama-intel-gpu
-  # https://github.com/eleiton/ollama-intel-arc/blob/main/docker-compose.yml
   ollama-intel:
     profiles: ["intel"]
     <<: *ollama

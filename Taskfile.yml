@@ -30,3 +30,16 @@ tasks:
     silent: true
     cmds:
       - docker compose --profile intel up --build --force-recreate
+
+  model:*:
+    desc: pull model 'task model:qwen3:0.6b'
+    vars:
+      model: "{{index .MATCH 0}}"
+    cmds:
+      - docker exec -it ollama ollama pull {{.model}}
+
+  prune:
+    desc: remove all
+    silent: true
+    cmds:
+      - docker container rm --force n8n ollama postgres
