@@ -4,3 +4,7 @@
 - https://github.com/mattcurf/ollama-intel-gpu
 - https://github.com/NikolasEnt/ollama-webui-intel
 - https://github.com/supabase/supabase/blob/master/docker/docker-compose.yml
+
+```
+postgres: postgres://n8n:Qwerty123@postgres:5432/n8n
+```
