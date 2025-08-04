@@ -9,8 +9,12 @@ x-ollama: &ollama
     - OLLAMA_FLASH_ATTENTION=1
     - OLLAMA_KV_CACHE_TYPE=q8_0
     - OLLAMA_MAX_LOADED_MODELS=2
+    - OLLAMA_HOST=ollama:11434
   volumes:
     - ./data/ollama:/root/.ollama
+  command:
+    - "-c"
+    - "sleep 3; ollama pull llama3.1; ollama pull nomic-embed-text"
   networks:
     - n8n
   ports:
@@ -69,6 +73,17 @@ services:
       - postgres
     networks:
       - n8n
+
+  qdrant:
+    image: qdrant/qdrant
+    container_name: qdrant
+    networks:
+      - n8n
+    restart: unless-stopped
+    ports:
+      - 6333:6333
+    volumes:
+      - ./data/qdrant:/qdrant/storage
 
   ollama:
     profiles: ["cpu"]
